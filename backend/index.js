@@ -2,6 +2,7 @@ import Express  from "express";
 import http from "http"
 import cors from "cors"
 import { Server } from "socket.io";
+import authRoute from "./router/authRoutes.js"
 
 
 
@@ -9,6 +10,8 @@ const app = Express()
 
 
 app.use(cors())
+
+app.use('/auth', authRoute)
 
 
 
