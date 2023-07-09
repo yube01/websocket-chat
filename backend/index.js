@@ -3,10 +3,22 @@ import http from "http"
 import cors from "cors"
 import { Server } from "socket.io";
 import authRoute from "./router/authRoutes.js"
+import mongoose from "mongoose";
+import dotenv from "dotenv"
 
 
+dotenv.config()
 
 const app = Express()
+
+
+app.use(Express.json())
+
+
+//db connection
+mongoose.connect(process.env.MONGO)
+.then(()=>console.log("DB connected"))
+.catch((e)=>console.log("DB not connected") )
 
 
 app.use(cors())
